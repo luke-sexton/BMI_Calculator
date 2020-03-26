@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private String measurementValue = MEASUREMENT_DEFAULT;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch (measurementValue) {
             case MEASUREMENT_DEFAULT:
-                setContentView(R.layout.activity_metric);
+                Intent metricIntent = new Intent(this, MetricActivity.class);
+                startActivity(metricIntent);
                 break;
             case MEASUREMENT_IMPERIAL:
-                setContentView(R.layout.activity_imperial);
+                Intent imperialIntent = new Intent(this, ImperialActivity.class);
+                startActivity(imperialIntent);
         }
     }
 
@@ -46,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculateClicked(View view) {
-
+        Intent intent = new Intent(this, CalculateActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -54,10 +56,14 @@ public class MainActivity extends AppCompatActivity {
         // Set layout depending on user's measurement setting.
         super.onActivityResult(requestCode, resultCode, data);
 
+
+        // Results from SettingsActivity intent
         if (requestCode == SettingsActivity.SETTINGS_REQUEST && resultCode == RESULT_OK) {
             if (data != null) {
                 measurementValue = data.getStringExtra(MEASUREMENT_KEY);
             }
         }
+
+        // Results from Calculate
     }
 }
