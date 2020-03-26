@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences preferences = getSharedPreferences(PREFERENCES_KEY, MODE_PRIVATE);
             measurementValue = preferences.getString(MEASUREMENT_KEY, MEASUREMENT_DEFAULT);
         }
-
         startChosenActivity();
     }
 
@@ -51,24 +50,17 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, SettingsActivity.SETTINGS_REQUEST);
     }
 
-    public void calculateClicked(View view) {
-        Intent intent = new Intent(this, CalculateActivity.class);
-        startActivity(intent);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         // Set layout depending on user's measurement setting.
         super.onActivityResult(requestCode, resultCode, data);
 
 
-        // Results from SettingsActivity intent
+        // Results from finished Settings activity.
         if (requestCode == SettingsActivity.SETTINGS_REQUEST && resultCode == RESULT_OK) {
             if (data != null) {
                 measurementValue = data.getStringExtra(MEASUREMENT_KEY);
             }
         }
-
-        // Results from Calculate
     }
 }
