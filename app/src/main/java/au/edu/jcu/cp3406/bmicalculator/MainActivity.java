@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     private static final String PREFERENCES_KEY = "preferences";
@@ -19,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         /* If no saved instance, load settings activity to set user's preferences.
            Otherwise set user's saved measurement preference stored in memory. */
@@ -43,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         // Create intent to start the settings activity that expects a result.
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivityForResult(intent, SettingsActivity.SETTINGS_REQUEST);
+    }
+
+    public void calculateClicked(View view) {
+
     }
 
     @Override
