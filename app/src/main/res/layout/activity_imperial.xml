@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#60A3D9"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ImperialActivity">
 
     <Button
         android:id="@+id/calculate_button"
