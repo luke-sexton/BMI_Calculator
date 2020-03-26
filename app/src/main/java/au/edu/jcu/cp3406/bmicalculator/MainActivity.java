@@ -29,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
             measurementValue = preferences.getString(MEASUREMENT_KEY, MEASUREMENT_DEFAULT);
         }
 
+        startChosenActivity();
+    }
+
+    private void startChosenActivity() {
+        // Sends intent to start new activity based on user's chosen measurement.
         switch (measurementValue) {
             case MEASUREMENT_DEFAULT:
                 Intent metricIntent = new Intent(this, MetricActivity.class);
