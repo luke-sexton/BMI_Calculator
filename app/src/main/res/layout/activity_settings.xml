@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#60A3D9"
+    android:orientation="vertical"
+    tools:context=".SettingsActivity">
+
+    <Button
+        android:id="@+id/done_button"
+        android:onClick="doneClicked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginBottom="64dp"
+
+        android:background="@drawable/rounded_background"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+
+        android:text="@string/done"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TableLayout
+        android:id="@+id/table_layout"
+        android:background="@drawable/rounded_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
+
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:stretchColumns="*"
+
+        app:layout_constraintBottom_toTopOf="@id/done_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings">
+
+        <TableRow
+            android:id="@+id/settings_row_one"
+            android:gravity="center">
+
+            <ToggleButton
+                android:id="@+id/measurement_toggle"
+                android:textOff="@string/metric"
+                android:textOn="@string/imperial" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/settings_row_two"
+            android:gravity="center"
+            >
+
+            <ToggleButton
+                android:id="@+id/gender_toggle"
+                android:textOff="@string/male"
+                android:textOn="@string/female"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/settings_row_three">
+
+            <TextView
+                android:id="@+id/age_view"
+                android:textAlignment="center"
+                android:text="@string/age"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/royal_blue" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/settings_row_four">
+
+            <SeekBar
+                android:id="@+id/age_bar"
+                android:layout_marginTop="8dp"
+                android:max="100"
+                android:progressDrawable="@drawable/seek_bar"
+                android:thumb="@drawable/seek_bar_thumb" />
+        </TableRow>
+
+    </TableLayout>
+
+
+    <TextView
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/rounded_background"
+        android:padding="16dp"
+
+        android:text="@string/bmi_settings"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/royal_blue"
+        android:textStyle="bold"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

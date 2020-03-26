@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="navy_blue">#003B73</color>
+    <color name="royal_blue">#0074B7</color>
+    <color name="blue_grotto">#60A3D9</color>
+    <color name="baby_blue">#BFD7ED</color>
+
+    <color name="seek_bar_background">@color/royal_blue</color>
+    <color name="seek_bar_progress">@color/navy_blue</color>
+</resources>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="bmi_logo">Body Mass Index</string>
+    <string name="calculate_your_bmi">Calculate Your BMI</string>
+    <string name="bmi_settings">BMI Settings</string>
+    <string name="metric">Metric</string>
+    <string name="height_cm">Height (cm)</string>
+    <string name="weight_kg">Weight (kg)</string>
+    <string name="imperial">Imperial</string>
+    <string name="feet">Height (ft)</string>
+    <string name="inches">Height (in)</string>
+    <string name="weight_lb">Weight (lb)</string>
+    <string name="gender">Gender: </string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="age">AGE</string>
+    <string name="done">Done</string>
+    <string name="settings">Settings</string>
+</resources>
