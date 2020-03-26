@@ -44,7 +44,7 @@
 
         <TableRow>
             <TextView
-                android:id="@+id/height_metric"
+                android:id="@+id/height_view"
                 android:paddingBottom="8dp"
                 android:text="@string/height_cm"
                 android:textAlignment="center"
@@ -54,7 +54,7 @@
 
         <TableRow>
             <SeekBar
-                android:id="@+id/height_metric_seekBar"
+                android:id="@+id/height_bar"
                 android:layout_marginTop="8dp"
 
                 android:max="200"
@@ -64,7 +64,7 @@
 
         <TableRow>
             <TextView
-                android:id="@+id/weight_metric"
+                android:id="@+id/weight_view"
                 android:paddingTop="8dp"
                 android:text="@string/weight_kg"
                 android:textAlignment="center"
@@ -74,7 +74,7 @@
 
         <TableRow>
             <SeekBar
-                android:id="@+id/weight_metric_seekBar"
+                android:id="@+id/weight_bar"
                 android:layout_marginTop="8dp"
                 android:max="200"
                 android:progressDrawable="@drawable/seek_bar"
