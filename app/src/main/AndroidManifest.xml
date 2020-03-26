@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".SettingsActivity"/>
         <activity android:name=".CalculateActivity"/>
+        <activity android:name=".MetricActivity"/>
+        <activity android:name=".ImperialActivity"/>
     </application>
 
 </manifest>
