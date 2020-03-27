@@ -50,6 +50,7 @@ public class ImperialActivity extends Activity {
     public void settingsClicked(MenuItem menuItem) {
         // Create intent to start the settings activity that expects a result.
         Intent intent = new Intent(this, SettingsActivity.class);
-        startActivityForResult(intent, SettingsActivity.SETTINGS_REQUEST);
+        startActivity(intent);
+
     }
 }

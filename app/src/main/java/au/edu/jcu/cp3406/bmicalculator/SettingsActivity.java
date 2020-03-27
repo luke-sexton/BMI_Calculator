@@ -1,7 +1,6 @@
 package au.edu.jcu.cp3406.bmicalculator;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -11,11 +10,10 @@ import android.widget.ToggleButton;
 
 
 public class SettingsActivity extends Activity {
-    public static final int SETTINGS_REQUEST = 1;
+    private static final String PREFERENCES_KEY = "preferences";
     private static final String MEASUREMENT_KEY = "measurement";
     private static final String GENDER_KEY = "gender";
     private static final String AGE_KEY = "age";
-    private static final String PREFERENCES_KEY = "preferences";
     private static final String AGE_PLACEHOLDER_TEXT = "AGE: ";
     private SharedPreferences preferences;
     private ToggleButton measurementToggle;
@@ -27,13 +25,8 @@ public class SettingsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Set content view, set view objects with reference id and load shared preferences.
-        setContentView(R.layout.activity_settings);
-        measurementToggle = findViewById(R.id.measurement_toggle);
-        genderToggle = findViewById(R.id.gender_toggle);
-        ageTextView = findViewById(R.id.age_view);
-        ageBar = findViewById(R.id.age_bar);
+        setViews();
 
         // Create preferences to store user's settings in memory.
         preferences = getSharedPreferences(PREFERENCES_KEY, MODE_PRIVATE);
@@ -58,42 +51,35 @@ public class SettingsActivity extends Activity {
         });
     }
 
+    private void setViews() {
+        setContentView(R.layout.activity_settings);
+        measurementToggle = findViewById(R.id.measurement_toggle);
+        genderToggle = findViewById(R.id.gender_toggle);
+        ageTextView = findViewById(R.id.age_view);
+        ageBar = findViewById(R.id.age_bar);
+    }
+
     public void doneClicked(View view) {
-        Intent intent = new Intent();
-
-        if (measurementToggle.isChecked()) {
-            // Measurement is imperial
-            intent.putExtra(MEASUREMENT_KEY, measurementToggle.getText().toString());
-        } else {
-            // Measurement is Metric
-            intent.putExtra(MEASUREMENT_KEY, measurementToggle.getText().toString());
-        }
-
-        setResult(RESULT_OK, intent);
-        savePreferences();
+        // Save user's chosen settings into preferences.
+        SharedPreferences.Editor preferencesEditor = preferences.edit();
+        preferencesEditor.putBoolean("is_first_run", true);
+        preferencesEditor.putBoolean(MEASUREMENT_KEY, measurementToggle.isChecked());
+        preferencesEditor.putBoolean(GENDER_KEY, genderToggle.isChecked());
+        preferencesEditor.apply();
         finish();
     }
 
     private void loadPreferences() {
         // Load previously saved preferences.
-        boolean measurementIsChecked = preferences.getBoolean(MEASUREMENT_KEY, false);
-        boolean genderIsChecked = preferences.getBoolean(GENDER_KEY, false);
         String ageText = preferences.getString(AGE_KEY, AGE_PLACEHOLDER_TEXT);
+        String ageBarText = ageText.replace(AGE_PLACEHOLDER_TEXT, "");
 
-        measurementToggle.setChecked(measurementIsChecked);
-        genderToggle.setChecked(genderIsChecked);
+        measurementToggle.setChecked(preferences.getBoolean(MEASUREMENT_KEY, false));
+        genderToggle.setChecked(preferences.getBoolean(GENDER_KEY, false));
         ageTextView.setText(ageText);
-        ageBar.setProgress(Integer.parseInt(ageText.replace(AGE_PLACEHOLDER_TEXT, "")));
-    }
 
-
-    public void savePreferences() {
-        // Save user's chosen settings into preferences.
-        SharedPreferences.Editor preferencesEditor = preferences.edit();
-
-        preferencesEditor.putBoolean(MEASUREMENT_KEY, measurementToggle.isChecked());
-        preferencesEditor.putBoolean(GENDER_KEY, genderToggle.isChecked());
-        preferencesEditor.putString(AGE_KEY, ageTextView.getText().toString());
-        preferencesEditor.apply();
+        if (!ageBarText.equals("")) {
+            ageBar.setProgress(Integer.parseInt(ageBarText));
+        }
     }
 }
