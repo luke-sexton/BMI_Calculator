@@ -10,11 +10,13 @@
 
     <Button
         android:id="@+id/calculate_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
         android:layout_marginBottom="64dp"
-        android:background="@drawable/rounded_background"
         android:onClick="calculateClicked"
+        android:background="@drawable/rounded_background"
 
         android:padding="16dp"
         android:text="@string/calculate_your_bmi"
