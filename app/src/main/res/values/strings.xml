@@ -16,4 +16,7 @@
     <string name="age">AGE</string>
     <string name="done">Done</string>
     <string name="settings">Settings</string>
+    <string name="welcome">Welcome!</string>
+    <string name="go">Go!</string>
+    <string name="welcome_message">First time using your BMI calculator? \n \nLet\'s get you started!</string>
 </resources>
