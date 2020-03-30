@@ -83,8 +83,13 @@ public class ImperialActivity extends AppCompatActivity {
     }
 
     public void calculateClicked(View view) {
-        // Send intent to start calculate activity.
+        // Create intent to start calculate activity.
         Intent intent = new Intent(this, CalculateActivity.class);
+
+        // Add data to intent.
+        intent.putExtra(FEET_KEY, feet);
+        intent.putExtra(INCHES_KEY, inches);
+        intent.putExtra(WEIGHT_KEY, weight);
         startActivity(intent);
     }
 

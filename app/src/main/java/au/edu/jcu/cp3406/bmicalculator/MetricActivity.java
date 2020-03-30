@@ -110,6 +110,10 @@ public class MetricActivity extends AppCompatActivity {
     public void calculateClicked(View view) {
         // Send intent to start calculate activity.
         Intent intent = new Intent(this, CalculateActivity.class);
+
+        // Add data to intent.
+        intent.putExtra(HEIGHT_KEY, height);
+        intent.putExtra(WEIGHT_KEY, weight);
         startActivity(intent);
     }
 
