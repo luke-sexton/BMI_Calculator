@@ -26,6 +26,7 @@ public class SettingsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // Set content view, set view objects with reference id and load shared preferences.
         setViews();
 

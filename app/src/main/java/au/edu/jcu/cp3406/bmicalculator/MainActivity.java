@@ -13,14 +13,11 @@ public class MainActivity extends AppCompatActivity {
     static final String INITIAL_STATE = "Initial State";
     private SharedPreferences preferences;
     public Intent intent;
-    public Intent settingsIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println("onCreate");
-
-        settingsIntent = new Intent(this, SettingsActivity.class);
 
         // Start activity based on user's saved preferences.
         preferences = getSharedPreferences(PREFERENCES, MODE_PRIVATE);
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("startSettingsActivity");
         // Start settings activity.
         intent = new Intent(this, SettingsActivity.class);
-        startActivityForResult(settingsIntent, SettingsActivity.SETTINGS_REQUEST);
+        startActivityForResult(intent, SettingsActivity.SETTINGS_REQUEST);
     }
 
 }
