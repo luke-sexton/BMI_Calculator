@@ -2,7 +2,6 @@ package au.edu.jcu.cp3406.bmicalculator;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        // Start preferred activity from
+        // Ensure activities finished correctly before starting the preferred activity.
         super.onActivityResult(requestCode, resultCode, data);
         System.out.println("MainActivity onActivityResult");
 

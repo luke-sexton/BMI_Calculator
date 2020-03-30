@@ -40,14 +40,10 @@ public class SettingsActivity extends Activity {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
     }
 
@@ -102,11 +98,17 @@ public class SettingsActivity extends Activity {
 
     private void setViews() {
         System.out.println("setViews");
-        // Set content and object views.
+        // Set XML layout to content view.
         setContentView(R.layout.activity_settings);
+
+        // ToggleButtons
         measurementToggle = findViewById(R.id.measurement_toggle);
         genderToggle = findViewById(R.id.gender_toggle);
+
+        // TextViews
         ageTextView = findViewById(R.id.age_view);
+
+        // SeekBars
         ageBar = findViewById(R.id.age_bar);
     }
 }

@@ -32,6 +32,7 @@ public class MetricActivity extends AppCompatActivity {
         // Set content view, set view objects with reference id.
         setViews();
 
+        // Set height and weight values from saved instance state.
         if (savedInstanceState != null) {
             height = savedInstanceState.getInt(HEIGHT_KEY);
             weight = savedInstanceState.getInt(WEIGHT_KEY);
@@ -46,11 +47,17 @@ public class MetricActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        // Save user values to instance state.
-        super.onSaveInstanceState(outState);
-        outState.putInt(HEIGHT_KEY, height);
-        outState.putInt(WEIGHT_KEY, weight);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        // Confirm finished SettingsActivity to finish this activity and return to MainActivity.
+        super.onActivityResult(requestCode, resultCode, data);
+        System.out.println("MetricActivity onActivityResult");
+
+        // Confirm finished settings activity.
+        if (resultCode == RESULT_OK) {
+            // Finish metric activity and return to main activity.
+            setResult(resultCode);
+            finish();
+        }
     }
 
     @Override
@@ -59,6 +66,7 @@ public class MetricActivity extends AppCompatActivity {
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+
 
     private void createOnSeekBarChangeListener() {
         // Text field will show the integer from the seek bar's position.
@@ -84,42 +92,23 @@ public class MetricActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         };
-
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        // Start preferred activity from
-        super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("MetricActivity onActivityResult");
-
-        if (resultCode == RESULT_OK) {
-            setResult(resultCode);
-            finish();
-        }
-    }
-
-    private void setViews() {
-        setContentView(R.layout.activity_metric);
-        heightBar = findViewById(R.id.height_bar);
-        weightBar = findViewById(R.id.weight_bar);
-        heightText = findViewById(R.id.height_view);
-        weightText = findViewById(R.id.weight_view);
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        // Save user values to instance state.
+        super.onSaveInstanceState(outState);
+        outState.putInt(HEIGHT_KEY, height);
+        outState.putInt(WEIGHT_KEY, weight);
     }
 
     public void calculateClicked(View view) {
-        // Send intent to start Calculate activity.
-
-        // put data into intent, finish() to go back to main activity
+        // Send intent to start calculate activity.
         Intent intent = new Intent(this, CalculateActivity.class);
         startActivity(intent);
     }
@@ -129,4 +118,20 @@ public class MetricActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivityForResult(intent, SettingsActivity.SETTINGS_REQUEST);
     }
+
+    private void setViews() {
+        // Set XML layout to content view.
+        setContentView(R.layout.activity_metric);
+
+        // TextViews
+        heightText = findViewById(R.id.height_view);
+        weightText = findViewById(R.id.weight_view);
+
+        // SeekBars
+        heightBar = findViewById(R.id.height_bar);
+        weightBar = findViewById(R.id.weight_bar);
+    }
+
+
+
 }
