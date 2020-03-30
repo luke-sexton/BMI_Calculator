@@ -17,7 +17,7 @@
         android:layout_marginBottom="64dp"
 
         android:background="@drawable/rounded_background"
-        android:onClick="settingsClicked"
+        android:onClick="startSettingsActivity"
 
         android:padding="16dp"
         android:text="@string/go"
