@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingsActivity"/>
-        <activity android:name=".CalculateActivity"/>
+        <activity android:name=".ResultsActivity"/>
         <activity android:name=".MetricActivity"/>
         <activity android:name=".ImperialActivity"/>
     </application>
