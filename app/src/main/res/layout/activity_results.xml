@@ -8,171 +8,170 @@
     android:orientation="vertical"
     tools:context=".ResultsActivity">
 
-    <TextView
-        android:id="@+id/bmi_logo"
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:padding="16dp"
 
-        android:background="@drawable/rounded_background"
-
-        android:text="@string/bmi_logo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textAlignment="center"
-        android:textColor="@color/royal_blue"
-        android:textStyle="bold"
-
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/results"/>
-
-    <TextView
-        android:id="@+id/results"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:padding="16dp"
-        android:background="@drawable/rounded_background"
-
-        android:text="@string/results"
-
-
-        app:layout_constraintTop_toBottomOf="@id/bmi_logo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TableLayout
-        android:id="@+id/table_layout"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:background="@drawable/rounded_background"
-
-        android:stretchColumns="*"
-        android:measureWithLargestChild="true"
-
-        app:layout_constraintTop_toBottomOf="@id/results"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-        <TableRow
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@color/colorAccent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/underweight_col1"
-                android:text="@string/_18_5_and_below"
+                android:id="@+id/bmi_logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:padding="16dp"
+
+                android:background="@drawable/rounded_background"
+
+                android:text="@string/bmi_logo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textAlignment="center"
+                android:textColor="@color/royal_blue"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/results"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:padding="16dp"
+                android:background="@drawable/rounded_background"
+
+                android:text="@string/results"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <TableLayout
+                android:id="@+id/table_layout"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/rounded_background"
+
+                android:stretchColumns="*"
+                android:measureWithLargestChild="true">
+
+                <TableRow
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@color/colorAccent">
+
+                    <TextView
+                        android:id="@+id/underweight_col1"
+                        android:text="@string/_18_5_and_below"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+
+                    <TextView
+                        android:id="@+id/underweight_col2"
+                        android:text="@string/underweight"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@color/green">
+
+                    <TextView
+                        android:id="@+id/healthy_col1"
+                        android:text="@string/_18_6_and_24_9"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+
+                    <TextView
+                        android:id="@+id/healthy_col2"
+                        android:text="@string/healthy"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@color/orange">
+
+                    <TextView
+                        android:id="@+id/overweight_col1"
+                        android:text="@string/_25_and_29_9"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+
+                        />
+
+                    <TextView
+                        android:id="@+id/overweight_col2"
+                        android:text="@string/overweight"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@color/red">
+
+                    <TextView
+                        android:id="@+id/obese_col1"
+                        android:text="@string/_30_and_39_9"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+
+                    <TextView
+                        android:id="@+id/obese_col2"
+                        android:text="@string/obese"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+
+                </TableRow>
+
+            </TableLayout>
+
+            <Button
+                android:id="@+id/okay_button"
+                android:onClick="okayClicked"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginBottom="32dp"
+                android:padding="16dp"
+                android:background="@drawable/rounded_background"
+
+                android:text="@string/ok"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 />
 
-            <TextView
-                android:id="@+id/underweight_col2"
-                android:text="@string/underweight"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                />
+        </LinearLayout>
 
-        </TableRow>
-
-        <TableRow
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@color/green">
-
-            <TextView
-                android:id="@+id/healthy_col1"
-                android:text="@string/_18_6_and_24_9"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                />
-
-            <TextView
-                android:id="@+id/healthy_col2"
-                android:text="@string/healthy"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@color/orange">
-
-            <TextView
-                android:id="@+id/overweight_col1"
-                android:text="@string/_25_and_29_9"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-
-
-                />
-
-            <TextView
-                android:id="@+id/overweight_col2"
-                android:text="@string/overweight"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@color/red">
-
-            <TextView
-                android:id="@+id/obese_col1"
-                android:text="@string/_30_and_39_9"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                />
-
-            <TextView
-                android:id="@+id/obese_col2"
-                android:text="@string/obese"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                />
-
-        </TableRow>
-
-    </TableLayout>
-
-    <Button
-        android:id="@+id/okay_button"
-
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="32dp"
-        android:padding="16dp"
-        android:background="@drawable/rounded_background"
-
-        android:text="@string/ok"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-
-        app:layout_constraintTop_toBottomOf="@id/table_layout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
