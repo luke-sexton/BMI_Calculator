@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MetricActivity extends AppCompatActivity {
     public static final int METRIC_REQUEST = 2;
-    private static final String HEIGHT_KEY = "height";
-    private static final String WEIGHT_KEY = "weight";
+    private static final String HEIGHT_KEY = "Height";
+    private static final String WEIGHT_KEY = "Weight";
+    private static final String CALCULATION_KEY = "Calculation";
     private int height;
     private int weight;
     private TextView heightText;
@@ -93,10 +95,12 @@ public class MetricActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         };
     }
 
@@ -109,12 +113,17 @@ public class MetricActivity extends AppCompatActivity {
     }
 
     public void calculateClicked(View view) {
-        // Send intent to start calculate activity.
-        Intent intent = new Intent(this, CalculateActivity.class);
+        // Create intent for results activity.
+        Intent intent = new Intent(this, ResultsActivity.class);
 
-        // Add data to intent.
-        intent.putExtra(HEIGHT_KEY, height);
-        intent.putExtra(WEIGHT_KEY, weight);
+        // Calculate BMI with user's height and weight.
+        Calculator calculator = new Calculator();
+        double calculation = calculator.calculateMetric(height, weight);
+
+        // Add user's calculated BMI to intent.
+        intent.putExtra(CALCULATION_KEY, calculation);
+
+        // Start results activity.
         startActivity(intent);
     }
 
@@ -136,7 +145,4 @@ public class MetricActivity extends AppCompatActivity {
         heightBar = findViewById(R.id.height_bar);
         weightBar = findViewById(R.id.weight_bar);
     }
-
-
-
 }

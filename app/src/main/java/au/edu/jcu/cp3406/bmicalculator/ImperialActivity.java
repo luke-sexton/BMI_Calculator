@@ -15,9 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ImperialActivity extends AppCompatActivity {
     public static final int IMPERIAL_REQUEST = 3;
-    private static final String FEET_KEY = "feet";
-    private static final String INCHES_KEY = "inches";
-    private static final String WEIGHT_KEY = "weight";
+    private static final String FEET_KEY = "Feet";
+    private static final String INCHES_KEY = "Inches";
+    private static final String WEIGHT_KEY = "Weight";
+    private static final String CALCULATION_KEY = "Calculation";
     private int feet;
     private int inches;
     private int weight;
@@ -34,7 +35,7 @@ public class ImperialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Set content view, set view objects with reference id.
+        // Set content view and view objects with reference id.
         setViews();
 
         // Set height and weight values from saved instance state.
@@ -84,13 +85,17 @@ public class ImperialActivity extends AppCompatActivity {
     }
 
     public void calculateClicked(View view) {
-        // Create intent to start calculate activity.
-        Intent intent = new Intent(this, CalculateActivity.class);
+        // Create intent for results activity.
+        Intent intent = new Intent(this, ResultsActivity.class);
 
-        // Add data to intent.
-        intent.putExtra(FEET_KEY, feet);
-        intent.putExtra(INCHES_KEY, inches);
-        intent.putExtra(WEIGHT_KEY, weight);
+        // Calculate BMI with user's height and weight.
+        Calculator calculator = new Calculator();
+        double calculation = calculator.calculateImperial(feet, inches, weight);
+
+        // Add user's calculated BMI to intent.
+        intent.putExtra(CALCULATION_KEY, calculation);
+
+        // Start results activity.
         startActivity(intent);
     }
 
@@ -131,7 +136,6 @@ public class ImperialActivity extends AppCompatActivity {
     }
 
     public void settingsIconClicked(MenuItem menuItem) {
-        System.out.println("Imperial Activity settingsIconClicked");
         // Create intent to start the settings activity that expects a result.
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivityForResult(intent, SettingsActivity.SETTINGS_REQUEST);
