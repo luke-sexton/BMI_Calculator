@@ -121,7 +121,8 @@ public class ImperialActivity extends AppCompatActivity {
                     case R.id.height_inches_seekBar:
                         inches = progress;
                         inchesView.setText(inchesDisplayText);
-                    case R.id.weight_bar:
+                        break;
+                    case R.id.weight_imperial_seekBar:
                         weight = progress;
                         weightView.setText(weightDisplayText);
                 }

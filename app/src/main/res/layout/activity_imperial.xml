@@ -58,7 +58,7 @@
             <SeekBar
                 android:id="@+id/height_feet_seekBar"
                 android:layout_marginTop="8dp"
-                android:max="10"
+                android:max="7"
                 android:progressDrawable="@drawable/seek_bar"
                 android:thumb="@drawable/seek_bar_thumb" />
         </TableRow>
@@ -96,7 +96,7 @@
             <SeekBar
                 android:id="@+id/weight_imperial_seekBar"
                 android:layout_marginTop="8dp"
-                android:max="12"
+                android:max="441"
                 android:progressDrawable="@drawable/seek_bar"
                 android:thumb="@drawable/seek_bar_thumb" />
         </TableRow>
