@@ -1,31 +1,31 @@
 package au.edu.jcu.cp3406.bmicalculator;
 
-public class Calculator {
-    private static final int FEET_TO_INCHES = 12;
-    private static final int CENTIMETRES_TO_METRES = 100;
+class Calculator {
+    private static final int TO_INCHES = 12;
+    private static final float CENTIMETRES_TO_METRES = 100f;
 
-    private double calculation;
+    Calculator() {}
 
-    public Calculator() {}
-
-    public double calculateMetric(int height, int weight) {
+    double calculateMetric(int height, int weight) {
         // Metric BMI Formula = weight (kg) / [height (m)]^2
 
         // Convert height to metres.
-        height /= CENTIMETRES_TO_METRES;
+        double calculationHeight = height / CENTIMETRES_TO_METRES;
 
-        // Return metric BMI formula calculation.
-        return calculation = weight / Math.pow(height, 2);
+        // Return metric BMI formula calculation rounded to 1 decimal point.
+        double calculation = weight / (Math.pow(calculationHeight, 2));
+        return Math.round(calculation * 10.0) / 10.0;
     }
 
-    public double calculateImperial(int feet, int inches, int weight) {
+    double calculateImperial(int feet, int inches, int weight) {
         // Imperial BMI Formula = 703 x weight (lb) / [height (in)]^2
 
         // Convert feet to inches
-        feet *= FEET_TO_INCHES;
+        feet *= TO_INCHES;
         double total_height = feet + inches;
 
-        // Return imperial BMI formula calculation
-        return calculation = 703 * (weight / Math.pow(total_height, 2));
+        // Return imperial BMI formula calculation rounded to 1 decimal point.
+        double calculation = 703 * (weight / Math.pow(total_height, 2));
+        return Math.round(calculation * 10.0) / 10.0;
     }
 }
