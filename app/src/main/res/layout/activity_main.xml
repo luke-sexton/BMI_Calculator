@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#60A3D9"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:paddingHorizontal="16dp"
     tools:context=".MainActivity">
 
     <Button
@@ -31,8 +29,7 @@
         android:background="@drawable/rounded_background"
         android:gravity="center"
         android:minHeight="256dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
+        android:paddingVertical="16dp"
         android:stretchColumns="*"
         app:layout_constraintBottom_toTopOf="@id/settings_button"
         app:layout_constraintLeft_toLeftOf="parent"

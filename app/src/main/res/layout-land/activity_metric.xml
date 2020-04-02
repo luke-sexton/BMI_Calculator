@@ -5,27 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#60A3D9"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:paddingHorizontal="16dp"
     tools:context=".MetricActivity">
 
 
-    <TextView
-        android:id="@+id/bmi_logo"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/calculate_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/baby_blue"
-        android:gravity="center"
+        android:onClick="calculateClicked"
         android:padding="16dp"
-        android:text="@string/bmi_logo"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/royal_blue"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/table_layout"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/calculate_your_bmi"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/table_layout"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/bmi_logo" />
 
 
     <TableLayout
@@ -34,8 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="256dp"
         android:background="@color/baby_blue"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
+        android:paddingVertical="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -66,8 +61,8 @@
             <SeekBar
                 android:id="@+id/height_bar"
                 android:layout_height="match_parent"
-                android:max="200"
                 android:layout_weight="1"
+                android:max="200"
                 android:progressDrawable="@drawable/seek_bar"
                 android:thumb="@drawable/seek_bar_thumb" />
 
@@ -98,8 +93,8 @@
             <SeekBar
                 android:id="@+id/weight_bar"
                 android:layout_height="match_parent"
-                android:max="200"
                 android:layout_weight="1"
+                android:max="200"
                 android:progressDrawable="@drawable/seek_bar"
                 android:thumb="@drawable/seek_bar_thumb" />
 
@@ -107,18 +102,21 @@
 
     </TableLayout>
 
-    <Button
-        android:id="@+id/calculate_button"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/bmi_logo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/baby_blue"
-        android:onClick="calculateClicked"
+        android:gravity="center"
         android:padding="16dp"
-        android:text="@string/calculate_your_bmi"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/table_layout"
+        android:text="@string/bmi_logo"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/royal_blue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/table_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bmi_logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
