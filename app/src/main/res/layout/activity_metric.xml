@@ -8,97 +8,126 @@
     android:orientation="vertical"
     tools:context=".MetricActivity">
 
-    <Button
-        android:id="@+id/calculate_button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="64dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginBottom="64dp"
-        android:onClick="calculateClicked"
-        android:background="@drawable/rounded_background"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="32dp"
+        android:weightSum="3"
 
-        android:padding="16dp"
-        android:text="@string/calculate_your_bmi"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent">
 
-    <TableLayout
-        android:id="@+id/table_layout"
-        android:background="@drawable/rounded_background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="64dp"
-        android:layout_marginRight="64dp"
+        <TextView
+            android:id="@+id/bmi_logo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background"
 
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:paddingRight="32dp"
-        android:paddingLeft="32dp"
-        android:stretchColumns="*"
+            android:text="@string/bmi_logo"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/royal_blue"
+            android:textStyle="bold" />
 
-        app:layout_constraintBottom_toTopOf="@id/calculate_button"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bmi_logo">
+        <TableLayout
+            android:id="@+id/table_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginTop="32dp"
+            android:weightSum="4"
+            android:background="@drawable/rounded_background"
+            android:paddingRight="64dp"
+            android:paddingLeft="64dp"
+            android:stretchColumns="*">
 
-        <TableRow>
-            <TextView
-                android:id="@+id/height_view"
-                android:paddingBottom="8dp"
-                android:text="@string/height_cm"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/royal_blue" />
-        </TableRow>
+            <TableRow
+                android:layout_weight="1"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
 
-        <TableRow>
+                <TextView
+                    android:id="@+id/height_view"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+
+                    android:text="@string/height_cm"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/royal_blue"
+                    android:textStyle="bold"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+
             <SeekBar
-                android:id="@+id/height_bar"
-                android:layout_marginTop="8dp"
+                    android:id="@+id/height_bar"
+                    android:layout_height="match_parent"
+                    android:max="200"
+                    android:progressDrawable="@drawable/seek_bar"
+                    android:thumb="@drawable/seek_bar_thumb" />
 
-                android:max="200"
-                android:progressDrawable="@drawable/seek_bar"
-                android:thumb="@drawable/seek_bar_thumb" />
-        </TableRow>
+            </TableRow>
 
-        <TableRow>
-            <TextView
-                android:id="@+id/weight_view"
-                android:paddingTop="8dp"
-                android:text="@string/weight_kg"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/royal_blue" />
-        </TableRow>
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
 
-        <TableRow>
-            <SeekBar
-                android:id="@+id/weight_bar"
-                android:layout_marginTop="8dp"
-                android:max="200"
-                android:progressDrawable="@drawable/seek_bar"
-                android:thumb="@drawable/seek_bar_thumb" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:id="@+id/weight_view"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
 
-    <TextView
-        android:id="@+id/bmi_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/rounded_background"
-        android:padding="16dp"
+                    android:text="@string/weight_kg"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/royal_blue"
+                    android:textStyle="bold"/>
 
-        android:text="@string/bmi_logo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="@color/royal_blue"
-        android:textStyle="bold"
+            </TableRow>
 
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TableRow
+                android:layout_weight="1"
+                android:layout_marginBottom="16dp"
+                android:gravity="center">
+
+                <SeekBar
+                    android:id="@+id/weight_bar"
+                    android:layout_height="match_parent"
+                    android:max="200"
+                    android:progressDrawable="@drawable/seek_bar"
+                    android:thumb="@drawable/seek_bar_thumb" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/calculate_button"
+            android:onClick="calculateClicked"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_background"
+
+            android:text="@string/calculate_your_bmi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
