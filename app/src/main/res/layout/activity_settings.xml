@@ -9,15 +9,14 @@
     tools:context=".SettingsActivity">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_marginTop="32dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginBottom="32dp"
         android:weightSum="3"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,7 +30,6 @@
             android:padding="16dp"
             android:gravity="center"
             android:background="@drawable/rounded_background"
-
             android:text="@string/bmi_settings"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -60,7 +58,6 @@
                 <ToggleButton
                     android:id="@+id/measurement_toggle"
                     android:layout_height="match_parent"
-
                     android:textOff="@string/metric"
                     android:textOn="@string/imperial"/>
 
@@ -87,7 +84,6 @@
                     android:id="@+id/age_view"
                     android:layout_height="match_parent"
                     android:gravity="center"
-
                     android:text="@string/age"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -120,7 +116,6 @@
             android:layout_weight="0.3"
             android:layout_marginTop="32dp"
             android:background="@drawable/rounded_background"
-
             android:text="@string/done"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 

@@ -9,15 +9,14 @@
     tools:context=".ImperialActivity">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_marginTop="32dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginBottom="32dp"
         android:weightSum="3"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +29,6 @@
             android:layout_weight="0.7"
             android:gravity="center"
             android:background="@drawable/rounded_background"
-
             android:text="@string/bmi_logo"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -137,18 +135,9 @@
             android:layout_weight="0.3"
             android:layout_marginTop="32dp"
             android:background="@drawable/rounded_background"
-
             android:text="@string/calculate_your_bmi"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
     </LinearLayout>
-
-
-
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

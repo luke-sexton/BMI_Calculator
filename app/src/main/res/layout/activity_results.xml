@@ -33,7 +33,6 @@
                 android:layout_marginTop="32dp"
                 android:padding="16dp"
                 android:background="@drawable/rounded_background"
-
                 android:text="@string/bmi_logo"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textAlignment="center"
@@ -48,7 +47,6 @@
                 android:layout_marginTop="32dp"
                 android:padding="16dp"
                 android:background="@drawable/rounded_background"
-
                 android:text="@string/results"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
@@ -58,7 +56,6 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/rounded_background"
-
                 android:stretchColumns="*"
                 android:measureWithLargestChild="true" >
 
