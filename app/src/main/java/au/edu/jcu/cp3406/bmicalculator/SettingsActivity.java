@@ -33,23 +33,27 @@ public class SettingsActivity extends Activity {
         // Create preferences to store/retrieve user's settings in memory.
         preferences = getSharedPreferences(MainActivity.PREFERENCES, MODE_PRIVATE);
         loadPreferences();
+
+        // Set listener to seek bar.
         ageBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                // Text field will show the integer from the seek bar's position.
                 String displayText = AGE_PLACEHOLDER_TEXT + progress;
                 ageTextView.setText(displayText);
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
     }
 
     public void doneClicked(View view) {
-        System.out.println("doneClicked");
         // Save preferences and finish activity.
         savePreferences();
         displayPreferenceToast();
@@ -58,7 +62,6 @@ public class SettingsActivity extends Activity {
     }
 
     private void displayPreferenceToast() {
-        System.out.println("displayPreferenceToast");
         // Display message to user that their settings are saved.
         Context context = getApplicationContext();
         CharSequence preferencesSaved = "Preferences Saved.";
@@ -68,24 +71,23 @@ public class SettingsActivity extends Activity {
     }
 
     private void loadPreferences() {
-        System.out.println("loadPreferences");
         // Load previously saved preferences.
         String ageText = preferences.getString(AGE, AGE_PLACEHOLDER_TEXT);
         genderToggle.setChecked(preferences.getBoolean(GENDER, false));
         measurementToggle.setChecked(preferences.getBoolean(MainActivity.MEASUREMENT, false));
 
-        // Set Age TextView and SeekBar Progress.
-        ageTextView.setText(ageText);
-
+        // Remove placeholder text to set the seek bar's progress.
         ageText = ageText.replace(AGE_PLACEHOLDER_TEXT, "");
         if (!ageText.equals("")) {
             ageBar.setProgress(Integer.parseInt(ageText));
         }
 
+        // Set age text view with placeholder text and seek bar progress.
+        ageText = AGE_PLACEHOLDER_TEXT + ageBar.getProgress();
+        ageTextView.setText(ageText);
     }
 
     private void savePreferences() {
-        System.out.println("savePreferences");
         // Save user's chosen settings into preferences.
         SharedPreferences.Editor preferencesEditor = preferences.edit();
 
@@ -98,7 +100,6 @@ public class SettingsActivity extends Activity {
     }
 
     private void setViews() {
-        System.out.println("setViews");
         // Set XML layout to content view.
         setContentView(R.layout.activity_settings);
 

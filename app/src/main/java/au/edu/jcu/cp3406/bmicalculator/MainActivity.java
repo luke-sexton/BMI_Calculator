@@ -1,11 +1,12 @@
 package au.edu.jcu.cp3406.bmicalculator;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     static final String PREFERENCES = "Preferences";
@@ -17,12 +18,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("onCreate");
-
         // Start activity based on user's saved preferences.
         preferences = getSharedPreferences(PREFERENCES, MODE_PRIVATE);
         boolean isInitialState = preferences.getBoolean(INITIAL_STATE, true);
 
+        // TESTING - Clear preferences for testing purposes.
+        preferences.edit().clear().apply();
+
+        /* If there are no saved preferences, display welcome layout,
+           otherwise start preferred activity based off saved measurement. */
         if (isInitialState) {
             setContentView(R.layout.activity_main);
         } else {
@@ -34,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         // Ensure activities finished correctly before starting the preferred activity.
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("MainActivity onActivityResult");
 
         if (resultCode == RESULT_OK) {
             startPreferredActivity();
@@ -42,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startPreferredActivity() {
-        System.out.println("startPreferredActivity");
         // Start activity from user's chosen measurement.
         boolean measurement = preferences.getBoolean(MEASUREMENT, false);
 
@@ -56,10 +58,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startSettingsActivity(View view) {
-        System.out.println("startSettingsActivity");
         // Start settings activity.
         intent = new Intent(this, SettingsActivity.class);
         startActivityForResult(intent, SettingsActivity.SETTINGS_REQUEST);
     }
-
 }

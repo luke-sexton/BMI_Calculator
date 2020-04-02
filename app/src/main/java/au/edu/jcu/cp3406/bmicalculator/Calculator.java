@@ -2,15 +2,16 @@ package au.edu.jcu.cp3406.bmicalculator;
 
 class Calculator {
     private static final int TO_INCHES = 12;
-    private static final float CENTIMETRES_TO_METRES = 100f;
+    private static final double TO_METRES = 100;
 
-    Calculator() {}
+    Calculator() {
+    }
 
     double calculateMetric(int height, int weight) {
         // Metric BMI Formula = weight (kg) / [height (m)]^2
 
         // Convert height to metres.
-        double calculationHeight = height / CENTIMETRES_TO_METRES;
+        double calculationHeight = height / TO_METRES;
 
         // Return metric BMI formula calculation rounded to 1 decimal point.
         double calculation = weight / (Math.pow(calculationHeight, 2));

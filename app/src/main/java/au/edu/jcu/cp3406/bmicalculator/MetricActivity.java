@@ -52,7 +52,6 @@ public class MetricActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         // Confirm finished SettingsActivity to finish this activity and return to MainActivity.
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("MetricActivity onActivityResult");
 
         // Confirm finished settings activity.
         if (resultCode == RESULT_OK) {
