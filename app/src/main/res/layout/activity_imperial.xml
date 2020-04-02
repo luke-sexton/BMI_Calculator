@@ -6,138 +6,130 @@
     android:layout_height="match_parent"
     android:background="#60A3D9"
     android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context=".ImperialActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+
+    <Button
+        android:id="@+id/calculate_button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="32dp"
-        android:weightSum="3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:onClick="calculateClicked"
+        android:padding="16dp"
+        android:text="@string/calculate_your_bmi"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/table_layout" />
 
-        <TextView
-            android:id="@+id/bmi_logo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:gravity="center"
-            android:background="@drawable/rounded_background"
-            android:text="@string/bmi_logo"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/royal_blue"
-            android:textStyle="bold"/>
+    <TableLayout
+        android:id="@+id/table_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:gravity="center"
+        android:minHeight="256dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toTopOf="@id/calculate_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bmi_logo">
 
-        <TableLayout
-            android:id="@+id/table_layout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:layout_marginTop="32dp"
-            android:weightSum="6"
-            android:background="@drawable/rounded_background"
-            android:paddingRight="64dp"
-            android:paddingLeft="64dp"
-            android:stretchColumns="*">
+        <TableRow>
 
-            <TableRow
-                android:layout_weight="1"
-                android:layout_marginTop="16dp"
-                android:gravity="center">
+            <TextView
+                android:id="@+id/height_feet"
+                android:padding="16dp"
+                android:text="@string/feet"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/royal_blue"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/height_feet"
-                    android:paddingBottom="8dp"
-                    android:text="@string/feet"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/royal_blue"
-                    android:textStyle="bold"/>
+        </TableRow>
 
-            </TableRow>
+        <TableRow>
 
-            <TableRow
-                android:layout_weight="1"
-                android:gravity="center">
+            <SeekBar
+                android:id="@+id/height_feet_seekBar"
+                android:max="7"
+                android:padding="16dp"
+                android:progressDrawable="@drawable/seek_bar"
+                android:thumb="@drawable/seek_bar_thumb" />
+        </TableRow>
 
-                <SeekBar
-                    android:id="@+id/height_feet_seekBar"
-                    android:max="7"
-                    android:progressDrawable="@drawable/seek_bar"
-                    android:thumb="@drawable/seek_bar_thumb"/>
-            </TableRow>
+        <TableRow>
 
-            <TableRow
-                android:layout_weight="1"
-                android:gravity="center">
+            <TextView
+                android:id="@+id/height_inches"
+                android:padding="16dp"
+                android:text="@string/inches"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/royal_blue"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/height_inches"
-                    android:text="@string/inches"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/royal_blue"
-                    android:textStyle="bold"/>
+        </TableRow>
 
-            </TableRow>
+        <TableRow>
 
-            <TableRow
-                android:layout_weight="1"
-                android:gravity="center">
+            <SeekBar
+                android:id="@+id/height_inches_seekBar"
+                android:max="12"
+                android:padding="16dp"
+                android:progressDrawable="@drawable/seek_bar"
+                android:thumb="@drawable/seek_bar_thumb" />
 
-                <SeekBar
-                    android:id="@+id/height_inches_seekBar"
-                    android:max="12"
-                    android:progressDrawable="@drawable/seek_bar"
-                    android:thumb="@drawable/seek_bar_thumb"/>
+        </TableRow>
 
-            </TableRow>
+        <TableRow>
 
-            <TableRow
-                android:layout_weight="1"
-                android:gravity="center">
+            <TextView
+                android:id="@+id/weight_imperial"
+                android:padding="16dp"
+                android:text="@string/weight_lb"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/royal_blue"
+                android:textStyle="bold" />
+        </TableRow>
 
-                <TextView
-                    android:id="@+id/weight_imperial"
-                    android:text="@string/weight_lb"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/royal_blue"
-                    android:textStyle="bold"/>
-            </TableRow>
+        <TableRow>
 
-            <TableRow
-                android:layout_weight="1"
-                android:layout_marginBottom="16dp"
-                android:gravity="center">
+            <SeekBar
+                android:id="@+id/weight_imperial_seekBar"
+                android:max="441"
+                android:padding="16dp"
+                android:progressDrawable="@drawable/seek_bar"
+                android:thumb="@drawable/seek_bar_thumb" />
+        </TableRow>
 
-                <SeekBar
-                    android:id="@+id/weight_imperial_seekBar"
-                    android:max="441"
-                    android:progressDrawable="@drawable/seek_bar"
-                    android:thumb="@drawable/seek_bar_thumb"/>
-            </TableRow>
+    </TableLayout>
 
-        </TableLayout>
+    <TextView
+        android:id="@+id/bmi_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/bmi_logo"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/royal_blue"
+        android:textStyle="bold"
 
-        <Button
-            android:id="@+id/calculate_button"
-            android:onClick="calculateClicked"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/rounded_background"
-            android:text="@string/calculate_your_bmi"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        app:layout_constraintBottom_toTopOf="@id/table_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

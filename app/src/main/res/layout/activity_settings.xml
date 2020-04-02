@@ -6,119 +6,113 @@
     android:layout_height="match_parent"
     android:background="#60A3D9"
     android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context=".SettingsActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/done_button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="32dp"
-        android:weightSum="3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:onClick="doneClicked"
+        android:padding="16dp"
+        android:text="@string/done"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/table_layout"
 
-        <TextView
-            android:id="@+id/settings"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:padding="16dp"
-            android:gravity="center"
-            android:background="@drawable/rounded_background"
-            android:text="@string/bmi_settings"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/royal_blue"
-            android:textStyle="bold"/>
+        />
 
-        <TableLayout
-            android:id="@+id/table_layout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:layout_marginTop="32dp"
-            android:weightSum="4"
-            android:gravity="center"
-            android:background="@drawable/rounded_background"
-            android:paddingLeft="64dp"
-            android:paddingRight="64dp"
-            android:stretchColumns="*">
+    <TableLayout
+        android:id="@+id/table_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:gravity="center"
+        android:minHeight="256dp"
+        android:paddingLeft="64dp"
+        android:paddingTop="16dp"
+        android:paddingRight="64dp"
+        android:paddingBottom="16dp"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toTopOf="@id/done_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings">
 
-            <TableRow
-                android:id="@+id/settings_row_one"
-                android:gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1">
+        <TableRow>
 
-                <ToggleButton
-                    android:id="@+id/measurement_toggle"
-                    android:layout_height="match_parent"
-                    android:textOff="@string/metric"
-                    android:textOn="@string/imperial"/>
+            <ToggleButton
+                android:id="@+id/measurement_toggle"
+                android:layout_height="match_parent"
+                android:padding="32dp"
+                android:textOff="@string/metric"
+                android:textOn="@string/imperial" />
 
-            </TableRow>
+        </TableRow>
 
-            <TableRow
-                android:id="@+id/settings_row_two"
-                android:gravity="center"
-                android:layout_weight="1">
+        <TableRow>
 
-                <ToggleButton
-                    android:id="@+id/gender_toggle"
-                    android:layout_height="match_parent"
-                    android:textOff="@string/male"
-                    android:textOn="@string/female"/>
+            <ToggleButton
+                android:id="@+id/gender_toggle"
+                android:layout_height="match_parent"
+                android:padding="32dp"
+                android:textOff="@string/male"
+                android:textOn="@string/female" />
 
-            </TableRow>
+        </TableRow>
 
-            <TableRow
-                android:id="@+id/settings_row_three"
-                android:layout_weight="1">
+        <TableRow>
 
-                <TextView
-                    android:id="@+id/age_view"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/age"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/royal_blue"
-                    android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/age_view"
 
-            </TableRow>
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:text="@string/age"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/royal_blue"
+                android:textStyle="bold" />
 
-            <TableRow
-                android:id="@+id/settings_row_four"
-                android:layout_marginBottom="16dp"
-                android:layout_weight="1">
+        </TableRow>
 
-                <SeekBar
-                    android:id="@+id/age_bar"
-                    android:layout_height="match_parent"
-                    android:max="100"
-                    android:progressDrawable="@drawable/seek_bar"
-                    android:thumb="@drawable/seek_bar_thumb"/>
+        <TableRow>
 
-            </TableRow>
+            <SeekBar
+                android:id="@+id/age_bar"
 
-        </TableLayout>
+                android:layout_height="match_parent"
+                android:max="100"
+                android:padding="16dp"
+                android:progressDrawable="@drawable/seek_bar"
+                android:thumb="@drawable/seek_bar_thumb" />
 
-        <Button
-            android:id="@+id/done_button"
-            android:onClick="doneClicked"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/rounded_background"
-            android:text="@string/done"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        </TableRow>
 
-    </LinearLayout>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/bmi_settings"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/royal_blue"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@id/table_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
